@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Playlist Oluşturucu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Spotify Playlist Oluşturucu</h1>
+    <button id="loginBtn">Spotify'a Giriş Yap</button>
+    <div id="user-info" style="display: none;">
+      <p>Hoş geldiniz, <span id="username"></span>!</p>
+      <label for="artist">Sanatçı Ara:</label>
+      <input type="text" id="artistInput" placeholder="Sanatçı adı girin...">
+      <ul id="artistSuggestions" style="list-style: none; padding: 0;"></ul>
+      <input type="text" id="playlistName" placeholder="Playlist Adı">
+      <br> <br>
+      <textarea id="playlistDescription" placeholder="Playlist Açıklaması"></textarea>
+      <br> <br>
+      <button id="createPlaylistBtn">Playlist Oluştur</button>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
