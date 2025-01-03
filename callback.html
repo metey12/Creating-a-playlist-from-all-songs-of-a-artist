@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Giriş Başarılı</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Spotify Giriş Başarılı!</h1>
+    <p>Spotify hesabınızla başarılı bir şekilde giriş yaptınız.</p>
+    <p id="token-info" style="display: none;">
+      Erişim Token'ınız alındı ve artık Spotify API'ye erişebilirsiniz!
+    </p>
+    <button id="continueBtn" style="display: none;">Devam Et</button>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.hash.substring(1));
+    const accessToken = urlParams.get('access_token');
+
+    if (accessToken) {
+      document.getElementById('token-info').style.display = 'block';
+      document.getElementById('continueBtn').style.display = 'inline-block';
+      localStorage.setItem('spotifyAccessToken', accessToken);
+      document.getElementById('continueBtn').addEventListener('click', () => {
+        window.location.href = 'index.html'; 
+      });
+    } else {
+      document.body.innerHTML = '<h1>Giriş Başarısız</h1><p>Spotify giriş işlemi başarısız oldu. Lütfen tekrar deneyin.</p>';
+    }
+  </script>
+</body>
+</html>
